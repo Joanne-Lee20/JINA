@@ -1,0 +1,56 @@
+---
+import Chapters from "./Chapters.astro";
+import About from "./About.astro";
+import Sources from "./Sources.astro";
+---
+
+<div id="container">
+  <main>
+    <section id="header">
+      <h1>JINA</h1>
+      <ul id="nav">
+        <li class="navlink">chapters</li>
+        <li class="navlink">about</li>
+        <li class="navlink">sources</li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #container {
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  main {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 60px;
+    margin-bottom: 0.5em;
+  }
+
+  #nav {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+  }
+
+  .navlink {
+    font-size: 20px;
+    cursor: pointer;
+    list-style: none;
+  }
+</style>
