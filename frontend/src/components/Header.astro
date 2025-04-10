@@ -7,7 +7,7 @@ import Sources from "./Sources.astro";
 <div id="container">
   <main>
     <section id="header">
-      <h1>JINA</h1>
+      <img src="public/assets/logo.gif" alt="Logo" />
       <ul id="nav">
         <li class="navlink">chapters</li>
         <li class="navlink">about</li>
@@ -26,6 +26,10 @@ import Sources from "./Sources.astro";
     box-sizing: border-box;
   }
 
+  img {
+    height: 180px;
+  }
+
   #container {
     padding-top: 2em;
     display: flex;
@@ -35,11 +39,6 @@ import Sources from "./Sources.astro";
 
   main {
     text-align: center;
-  }
-
-  h1 {
-    font-size: 60px;
-    margin-bottom: 0.5em;
   }
 
   #nav {
@@ -52,5 +51,11 @@ import Sources from "./Sources.astro";
     font-size: 20px;
     cursor: pointer;
     list-style: none;
+    color: #7b87a4;
+  }
+
+  .navlink:hover {
+    color: #485b84;
+    font-weight: 500;
   }
 </style>
