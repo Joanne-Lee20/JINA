@@ -1,4 +1,4 @@
-# REFERENCES
+# References
 
 - Dondlinger, Mary Jo. “Educational Video Game Design: A Review of the Literature.” _Journal of Applied Educational Technology_, vol. 4, 2007, pp. 21–31.
 
