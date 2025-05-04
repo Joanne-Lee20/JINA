@@ -28,7 +28,7 @@ import Header from "../components/Header.astro";
   </body>
 </html>
 
-<style>
+<style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
   html,
   body {
@@ -39,5 +39,18 @@ import Header from "../components/Header.astro";
     font-family: "Space Grotesk", sans-serif;
     color: #485b84;
     justify-content: center;
+  }
+
+  .fade-init {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
   }
 </style>
