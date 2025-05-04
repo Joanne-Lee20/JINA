@@ -1,8 +1,3 @@
----
-title: "About"
-layout: "../layouts/Layout.astro"
----
-
 # About JINA
 
 **JINA** is an interactive, web-based game that explores the complexities of Asian American identity through the story of its namesake main character, a Korean American middle schooler. Created by Joanne Lee, this narrative-driven experience is designed especially for middle school students, offering a thoughtful look at how cultural expectations, academic pressure, and personal dreams collide.

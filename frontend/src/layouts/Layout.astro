@@ -1,3 +1,7 @@
+---
+import Header from "../components/Header.astro";
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,7 +13,18 @@
     <title>JINA</title>
   </head>
   <body>
-    <slot />
+    <Header />
+    <main class="fade-init">
+      <slot />
+    </main>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const main = document.querySelector("main");
+        main?.classList.add("fade-in");
+        main?.classList.remove("fade-init");
+      });
+    </script>
   </body>
 </html>
 

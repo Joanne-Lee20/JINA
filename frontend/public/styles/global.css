@@ -1,4 +1,15 @@
 /* global.css */
+.fade-init {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
 #sources a {
   color: #485b84;
   text-decoration: none;
