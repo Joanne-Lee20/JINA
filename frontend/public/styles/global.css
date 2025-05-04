@@ -1,0 +1,13 @@
+/* global.css */
+#sources a {
+  color: #485b84;
+  text-decoration: none;
+}
+  
+#sources a:hover {
+  text-decoration: underline;
+}
+
+h2 {
+  font-size: 30px;
+}

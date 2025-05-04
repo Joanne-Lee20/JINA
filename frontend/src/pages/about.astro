@@ -1,0 +1,19 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import Info from "../content/Info.md";
+---
+
+<Layout>
+  <Header />
+  <div id="about">
+    <Info />
+  </div>
+
+  <style>
+    #about {
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</Layout>

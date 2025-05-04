@@ -1,17 +1,11 @@
----
-import Chapters from "./Chapters.astro";
-import About from "./About.astro";
-import Sources from "./Sources.astro";
----
-
 <div id="container">
   <main>
     <section id="header">
-      <img src="public/assets/logo.gif" alt="Logo" />
+      <a href="/"><img src="/Logo.gif" alt="Logo" /></a>
       <ul id="nav">
-        <li class="navlink">chapters</li>
-        <li class="navlink">about</li>
-        <li class="navlink">sources</li>
+        <li class="navlink"><a href="/chapters/">chapters</a></li>
+        <li class="navlink"><a href="/about/">about</a></li>
+        <li class="navlink"><a href="/sources/">sources</a></li>
       </ul>
     </section>
   </main>
@@ -32,6 +26,7 @@ import Sources from "./Sources.astro";
 
   #container {
     padding-top: 2em;
+    padding-bottom: 2em;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -57,5 +52,10 @@ import Sources from "./Sources.astro";
   .navlink:hover {
     color: #485b84;
     font-weight: 500;
+  }
+
+  a {
+    text-decoration: none;
+    color: #485b84;
   }
 </style>
