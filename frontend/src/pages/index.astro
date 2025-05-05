@@ -4,8 +4,10 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <img src="/Hero.png" alt="Hero" class="hero" />
-  <button>start</button>
+  <div id="home">
+    <img src="/Hero.png" alt="Hero" class="hero" />
+    <button>start</button>
+  </div>
 </Layout>
 
 <script>
@@ -18,20 +20,24 @@ import Layout from "../layouts/Layout.astro";
 </script>
 
 <style>
+
+  #home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+  }
+
   .hero {
   width: 100%;
   max-width: 40rem; /* Keeps it from getting too big on large screens */
   height: auto;
   margin: 0 auto;
-  display: block;
   padding-top: 2em;
 }
   button {
     font-family: "Space Grotesk", sans-serif;
     font-size: 20px;
-    display: flex;
-    justify-self: center;
-    align-self: center;
     border-color: #7B87A4
     border-width: 1px;
     border: solid;
