@@ -4,10 +4,19 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
+  <img src="/Hero.png" alt="Hero" class="hero" />
   <button>start</button>
 </Layout>
 
 <style>
+  .hero {
+  width: 100%;
+  max-width: 40rem; /* Keeps it from getting too big on large screens */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  padding-top: 2em;
+}
   button {
     font-family: "Space Grotesk", sans-serif;
     font-size: 20px;
@@ -18,7 +27,7 @@ import Layout from "../layouts/Layout.astro";
     border-width: 1px;
     border: solid;
     padding: 1em 2em;
-    margin: 2em auto;
+    margin: 0 2em 2em 2em;
     cursor: pointer;
     color: #7B87A4;
     background-color: #fcf8f6;
