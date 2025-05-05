@@ -3,4 +3,32 @@ import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout />
+<Layout>
+  <button>start</button>
+</Layout>
+
+<style>
+  button {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 20px;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    border-color: #7B87A4
+    border-width: 1px;
+    border: solid;
+    padding: 1em 2em;
+    margin: 2em auto;
+    cursor: pointer;
+    color: #7B87A4;
+    background-color: #fcf8f6;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #7B87A4;
+    border-color: #7B87A4;
+    color: #fcf8f6;
+    font-weight: 500;
+  }
+</style>

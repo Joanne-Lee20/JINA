@@ -1,7 +1,8 @@
 /* global.css */
 
 #sources a {
-  color: #485b84;
+  color: #2d3953;
+
   text-decoration: none;
 }
   
@@ -9,6 +10,23 @@
   text-decoration: underline;
 }
 
+#sources h1{
+  font-family: "Space Grotesk", sans-serif;
+}
+
+#about h1 {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+#footer h1 {
+  font-family: "Space Grotesk", sans-serif;
+}
+
 h2 {
   font-size: 30px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
 }
