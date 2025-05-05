@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -12,20 +13,13 @@ import Footer from "../components/Footer.astro";
     <link rel="stylesheet" href="/styles/global.css" />
     <meta name="generator" content={Astro.generator} />
     <title>JINA</title>
+    <ClientRouter />
   </head>
   <body>
     <Header />
-    <main class="fade-init">
+    <main>
       <slot />
     </main>
-
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const main = document.querySelector("main");
-        main?.classList.add("fade-in");
-        main?.classList.remove("fade-init");
-      });
-    </script>
     <Footer />
   </body>
 </html>

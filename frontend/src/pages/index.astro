@@ -8,6 +8,15 @@ import Layout from "../layouts/Layout.astro";
   <button>start</button>
 </Layout>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const img = document.querySelector(".hero");
+    if (img) {
+      img.addEventListener("contextmenu", (e) => e.preventDefault());
+    }
+  });
+</script>
+
 <style>
   .hero {
   width: 100%;
