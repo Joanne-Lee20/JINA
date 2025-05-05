@@ -55,3 +55,13 @@ h2 {
 p {
   font-family: "Montserrat", sans-serif;
 }
+
+@media (max-width: 640px) {
+  #about h1 {
+    text-align: center;
+  }
+
+  #sources h1 {
+    text-align: center;
+  }
+}
