@@ -4,15 +4,103 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <div id="chapters">
-    <h2>Chapters</h2>
-  </div>
-</Layout>
+    <div class="chapter">
+      <img
+        src="/pencil.png"
+        alt="Chapter 1"
+        onmouseover="this.src='/pencilhover.gif'"
+        onmouseout="this.src='/pencil.png'"
+      />
+      <span id="chapter1">chapter I.</span>
+    </div>
+
+    <div class="chapter">
+      <img
+        src="/notebook.png"
+        alt="Chapter 2"
+        onmouseover="this.src='/notebookhover.gif'"
+        onmouseout="this.src='/notebook.png'"
+      />
+      <span id="chapter2">???</span>
+    </div>
+
+    <div class="chapter">
+      <img
+        src="/makeup.png"
+        alt="Chapter 3"
+        onmouseover="this.src='/makeuphover.gif'"
+        onmouseout="this.src='/makeup.png'"
+      />
+      <span id="chapter34">???</span>
+    </div>
+
+    <div class="chapter">
+      <img
+        src="/clock.png"
+        alt="Chapter 4"
+        onmouseover="this.src='/clockhover.gif'"
+        onmouseout="this.src='/clock.png'"
+      />
+      <span id="chapter34">???</span>
+    </div>
+  </div></Layout
+>
 
 <style>
   #chapters {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 2em;
     padding: 3em;
+    margin: 0;
+    justify-content: center;
+  }
+
+  .chapter span {
+    position: absolute;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 24px;
+    color: #ead8bf;
+    font-weight: 500;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    justify-self: center;
+  }
+
+  .chapter:hover span {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #chapter1 {
+    transform: translate(-7.5em, 4.5em);
+  }
+  #chapter2 {
+    transform: translate(-6em, 4.8em);
+  }
+  #chapter34 {
+    transform: translate(-6em, 4em);
+  }
+
+  img {
+    width: 100%;
+    max-width: 15rem;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  img:hover {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 640px) {
+    #chapters {
+      grid-template-columns: repeat(1, auto);
+      gap: 3em;
+    }
+    .chapter span {
+      position: absolute;
+    }
   }
 </style>
