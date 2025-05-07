@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         onmouseover="this.src='/pencilhover.gif'"
         onmouseout="this.src='/pencil.png'"
       />
-      <span id="chapter1">chapter I.</span>
+      <span id="chapter1">tradition.</span>
     </div>
 
     <div class="chapter">
@@ -46,6 +46,15 @@ import Layout from "../layouts/Layout.astro";
   </div></Layout
 >
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll("#chapters img");
+    images.forEach((img) => {
+      img.addEventListener("contextmenu", (e) => e.preventDefault());
+    });
+  });
+</script>
+
 <style>
   #chapters {
     display: grid;
@@ -74,7 +83,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   #chapter1 {
-    transform: translate(-7.5em, 4.5em);
+    transform: translate(-7.4em, 4.7em);
   }
   #chapter2 {
     transform: translate(-6em, 4.8em);
