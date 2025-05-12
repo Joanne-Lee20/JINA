@@ -1,0 +1,85 @@
+---
+import Header from "../components/Header.astro";
+import Next from "../components/Next.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <div id="page">
+    <h1 class="typewriter-animation">chapter I: tradition.</h1>
+    <div>
+      <img src="/tradition.png" alt="tradition" class="cover" />
+    </div>
+    <Next />
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const img = document.querySelector(".hero");
+      if (img) {
+        img.addEventListener("contextmenu", (e) => e.preventDefault());
+      }
+    });
+  </script>
+
+  <style>
+    .cover {
+      width: 100%;
+      max-width: 35rem; /* Keeps it from getting too big on large screens */
+      height: auto;
+      margin: 0 auto;
+    }
+    #page {
+      align-items: center;
+      text-align: center;
+      padding: 2em;
+      padding-bottom: 4em;
+    }
+
+    .cursor {
+      position: relative;
+      width: 24em;
+      margin: 0 auto;
+      border-right: 3px solid #2d3953;
+      font-size: 30px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      transform: translateY(-50%);
+    }
+    /* Animation */
+    h1.typewriter-animation {
+      visibility: hidden;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #2d3953;
+      font-size: 30px;
+      animation:
+        typewriter 3s steps(20, end) 0.3s forwards,
+        blink-caret 0.75s step-end infinite;
+      animation-delay: 0.3s, 3.5s; /* delay blinking until after typing */
+      animation-fill-mode: forwards;
+    }
+    @keyframes typewriter {
+      0% {
+        width: 0;
+        visibility: visible;
+      }
+      100% {
+        width: 15ch;
+        visibility: visible;
+      }
+    }
+
+    @keyframes blink-caret {
+      0%,
+      100% {
+        border-color: #2d3953;
+      }
+      50% {
+        border-color: transparent;
+      }
+    }
+  </style>
+</Layout>

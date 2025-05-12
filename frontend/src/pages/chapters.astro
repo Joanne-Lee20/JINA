@@ -5,13 +5,15 @@ import Layout from "../layouts/Layout.astro";
 <Layout>
   <div id="chapters">
     <div class="chapter">
-      <img
-        src="/pencil.png"
-        alt="Chapter 1"
-        onmouseover="this.src='/pencilhover.gif'"
-        onmouseout="this.src='/pencil.png'"
-      />
-      <span id="chapter1">tradition.</span>
+      <a href="/tradition/">
+        <img
+          src="/pencil.png"
+          alt="Chapter 1"
+          onmouseover="this.src='/pencilhover.gif'"
+          onmouseout="this.src='/pencil.png'"
+        />
+        <span id="chapter1">tradition.</span></a
+      >
     </div>
 
     <div class="chapter">
@@ -48,10 +50,10 @@ import Layout from "../layouts/Layout.astro";
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const images = document.querySelectorAll("#chapters img");
-    images.forEach((img) => {
+    const img = document.querySelector("#chapters img");
+    if (img) {
       img.addEventListener("contextmenu", (e) => e.preventDefault());
-    });
+    }
   });
 </script>
 
