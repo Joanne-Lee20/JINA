@@ -1,33 +1,227 @@
 ---
 import Header from "../components/Header.astro";
-import Next from "../components/Next.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
   <div id="page">
     <h1 class="typewriter-animation">chapter I: tradition.</h1>
-    <div>
-      <img src="/tradition.png" alt="tradition" class="cover" />
+    <div id="game">
+      <div id="text">
+        <h1>dojalbi.</h1>
+        <p>
+          Select an object in front of you. You only get one, so choose wisely!
+        </p>
+        <img
+          id="text-icon"
+          src=""
+          alt="selected object"
+          style="display: none;"
+        />
+      </div>
+      <div id="objects">
+        <div class="object">
+          <button id="pencil"><img src="/webnovel/pencil.png" /></button>
+        </div>
+        <div class="object">
+          <button id="mallet"><img src="/webnovel/mallet.png" /></button>
+        </div>
+        <div class="object">
+          <button id="coins"><img src="/webnovel/coins.png" /></button>
+        </div>
+        <div class="object">
+          <button id="mic"><img src="/webnovel/mic.png" /></button>
+        </div>
+      </div>
     </div>
-    <Next />
+    <div>
+      <img
+        id="slideshow"
+        src="/tradition.png"
+        alt="chapter image"
+        class="cover"
+      />
+    </div>
+    <button id="nextBtn">&#62</button>
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const img = document.querySelector(".hero");
-      if (img) {
-        img.addEventListener("contextmenu", (e) => e.preventDefault());
+    document.addEventListener("astro:after-swap", setupSlideshow);
+    window.addEventListener("DOMContentLoaded", setupSlideshow);
+
+    function setupSlideshow() {
+      const images = ["/tradition.png"];
+      for (let i = 1; i <= 8; i++) {
+        images.push(`/webnovel/${i}.png`);
       }
-    });
+
+      let currentImageIndex = 0;
+      const slideshow = document.getElementById("slideshow");
+      const nextBtn = document.getElementById("nextBtn");
+      const header = document.querySelector("h1.typewriter-animation");
+      const game = document.getElementById("game");
+
+      const textHeading = document.querySelector("#text h1");
+      const textParagraph = document.querySelector("#text p");
+
+      const objectResponses = {
+        pencil: {
+          title: "the pencil.",
+          message:
+            '"Maybe she\'ll become a professor. Or write textbooks. Something steady."',
+        },
+        mallet: {
+          title: "the mallet.",
+          message:
+            '"Maybe law… or she\'ll be someone who takes charge. Strong personality."',
+        },
+        coins: {
+          title: "the coins.",
+          message: '"She\'ll be rich — maybe finance, maybe business."',
+        },
+        mic: {
+          title: "the mic.",
+          message: '"Singer? Performer? 아이구..."',
+        },
+      };
+
+      game.style.display = "none"; // Hide game initially
+
+      if (
+        slideshow instanceof HTMLImageElement &&
+        nextBtn instanceof HTMLElement &&
+        header instanceof HTMLElement
+      ) {
+        nextBtn.onclick = () => {
+          currentImageIndex = (currentImageIndex + 1) % images.length;
+
+          const tempImg = new Image();
+          tempImg.src = images[currentImageIndex];
+          tempImg.onload = () => {
+            slideshow.classList.remove("fade-in");
+            slideshow.src = tempImg.src;
+            void slideshow.offsetWidth;
+            slideshow.classList.add("fade-in");
+          };
+
+          if (currentImageIndex > 0) {
+            header.style.display = "none";
+          }
+
+          if (currentImageIndex === 8) {
+            slideshow.style.display = "none";
+            nextBtn.style.display = "none";
+            game.style.display = "block";
+
+            // Set up object button click listeners
+            Object.keys(objectResponses).forEach((id) => {
+              const button = document.getElementById(id);
+              if (button) {
+                button.addEventListener("click", () => {
+                  const { title, message } = objectResponses[id];
+                  textHeading.textContent = title;
+                  textParagraph.textContent = message;
+                });
+              }
+            });
+          }
+        };
+      }
+    }
   </script>
 
   <style>
+    #text-icon {
+      margin-top: 1em;
+      width: 4rem;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      transition: opacity 0.3s ease-in-out;
+    }
+    #objects button {
+      all: unset;
+      display: block;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    #game {
+      display: none;
+    }
+
+    #text {
+      padding: 1em;
+      background-color: #2d3953;
+      color: #ead8bf;
+      margin: 4em;
+    }
+    #objects {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 1em;
+      padding: 1em;
+      margin: 1em;
+      justify-content: center;
+      border-color: #2d3953;
+      border-style: double;
+      border-width: 2px;
+      border-radius: 10px;
+    }
+
+    .object img {
+      width: 100%;
+      max-width: 20rem;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .object:hover {
+      transform: scale(1.1);
+    }
+
+    #nextBtn {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 20px;
+      border: solid #7b87a4;
+      width: 2em;
+      height: 2em;
+      cursor: pointer;
+      color: #7b87a4;
+      background-color: #fcf8f6;
+      transition: background-color 0.3s ease;
+      border-radius: 50%;
+      padding: 0; /* ensure content is centered perfectly */
+    }
+
+    #nextBtn:hover {
+      background-color: #7b87a4;
+      border-color: #7b87a4;
+      color: #fcf8f6;
+      font-weight: 500;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
     .cover {
       width: 100%;
-      max-width: 35rem; /* Keeps it from getting too big on large screens */
+      max-width: 35rem;
       height: auto;
       margin: 0 auto;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease-in-out;
     }
     #page {
       align-items: center;
@@ -79,6 +273,16 @@ import Layout from "../layouts/Layout.astro";
       }
       50% {
         border-color: transparent;
+      }
+    }
+
+    @media (max-width: 640px) {
+      #objects {
+        grid-template-columns: repeat(2, auto);
+        gap: 1em;
+      }
+      #text {
+        margin: 1em;
       }
     }
   </style>
